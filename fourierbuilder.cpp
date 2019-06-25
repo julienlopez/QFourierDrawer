@@ -1,5 +1,7 @@
 #include "fourierbuilder.hpp"
 
+#include "coefficientwidget.hpp"
+
 #include <QGroupBox>
 #include <QLabel>
 #include <QPushButton>
@@ -18,13 +20,17 @@ FourierBuilder::FourierBuilder(QWidget* parent)
 
     m_fourier_x_layout = new QVBoxLayout;
     m_fourier_x_layout->setAlignment(Qt::AlignTop);
-    m_fourier_x_layout->addWidget(new QPushButton("+"));
+    auto* b = new QPushButton("+");
+    connect(b, &QPushButton::clicked, this, &FourierBuilder::addXCoefficient);
+    m_fourier_x_layout->addWidget(b);
     m_fourier_x_layout->addWidget(new QLabel(tr("x(t) = ")));
     fourier_layout->addLayout(m_fourier_x_layout);
 
     m_fourier_y_layout = new QVBoxLayout;
     m_fourier_y_layout->setAlignment(Qt::AlignTop);
-    m_fourier_y_layout->addWidget(new QPushButton("+"));
+    b = new QPushButton("+");
+    connect(b, &QPushButton::clicked, this, &FourierBuilder::addYCoefficient);
+    m_fourier_y_layout->addWidget(b);
     m_fourier_y_layout->addWidget(new QLabel(tr("y(t) = ")));
     fourier_layout->addLayout(m_fourier_y_layout);
 
@@ -50,6 +56,16 @@ template <class T> QPushButton* FourierBuilder::createButton(const QString& labe
     auto* button = new QPushButton(label);
     connect(button, &QPushButton::clicked, this, callback);
     return button;
+}
+
+void FourierBuilder::addXCoefficient()
+{
+    m_fourier_x_layout->addWidget(new CoefficientWidget);
+}
+
+void FourierBuilder::addYCoefficient()
+{
+    m_fourier_y_layout->addWidget(new CoefficientWidget);
 }
 
 void FourierBuilder::onLoadClicked()

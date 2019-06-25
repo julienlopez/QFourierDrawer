@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget* parent)
     auto* hl = new QHBoxLayout;
 
     auto* builder = new FourierBuilder;
-    builder->setFixedWidth(200);
+    builder->setFixedWidth(300);
     hl->addWidget(builder);
 
     auto* drawer = new FourierDrawer;

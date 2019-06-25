@@ -32,6 +32,10 @@ private:
 
     template <class T> QPushButton* createButton(const QString& label, T callback);
 
+    void addXCoefficient();
+
+    void addYCoefficient();
+
     void onLoadClicked();
 };
 
