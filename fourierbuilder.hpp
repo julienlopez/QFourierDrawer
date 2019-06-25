@@ -9,33 +9,30 @@ class QGroupBox;
 class QPushButton;
 class QVBoxLayout;
 
-class FourierBuilder : public QWidget
-{
-    Q_OBJECT
+class FourierBuilder : public QWidget {
+  Q_OBJECT
 public:
-    explicit FourierBuilder(QWidget *parent = nullptr);
+  explicit FourierBuilder(QWidget *parent = nullptr);
 
-    virtual ~FourierBuilder() = default;
+  virtual ~FourierBuilder() = default;
 
 signals:
-    void updated(Fourier values);
+  void updated(Fourier values);
 
 public slots:
-    void reset();
+  void reset();
 
-    void load(Fourier values);
+  void load(Fourier values);
 
 private:
-    QVBoxLayout* m_layout;
+  QVBoxLayout *m_layout;
+  QVBoxLayout *m_fourier_x_layout;
+  QVBoxLayout *m_fourier_y_layout;
 
-    // TODO keep both?
-    QGroupBox* m_fourier_widget;
-    QVBoxLayout* m_fourier_layout;
+  template <class T>
+  QPushButton *createButton(const QString &label, T callback);
 
-    template<class T>
-    QPushButton* createButton(const QString& label, T callback);
-
-    void onLoadClicked();
+  void onLoadClicked();
 };
 
 #endif // FOURIERBUILDER_HPP
