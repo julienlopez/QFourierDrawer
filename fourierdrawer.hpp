@@ -5,20 +5,21 @@
 
 #include <QWidget>
 
-class FourierDrawer : public QWidget {
-  Q_OBJECT
+class FourierDrawer : public QWidget
+{
+    Q_OBJECT
 public:
-  explicit FourierDrawer(QWidget *parent = nullptr);
+    explicit FourierDrawer(QWidget* parent = nullptr);
 
-  virtual ~FourierDrawer() = default;
+    virtual ~FourierDrawer() = default;
 
 signals:
 
 public slots:
-  void setValues(Fourier values);
+    void setValues(Fourier values);
 
 private:
-  Fourier m_values;
+    Fourier m_values;
 };
 
 #endif // FOURIERDRAWER_HPP
