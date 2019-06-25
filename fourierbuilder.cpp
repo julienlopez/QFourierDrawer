@@ -60,12 +60,12 @@ template <class T> QPushButton* FourierBuilder::createButton(const QString& labe
 
 void FourierBuilder::addXCoefficient()
 {
-    m_fourier_x_layout->addWidget(new CoefficientWidget);
+    m_fourier_x_layout->addWidget(new CoefficientWidget("cos"));
 }
 
 void FourierBuilder::addYCoefficient()
 {
-    m_fourier_y_layout->addWidget(new CoefficientWidget);
+    m_fourier_y_layout->addWidget(new CoefficientWidget("sin"));
 }
 
 void FourierBuilder::onLoadClicked()
