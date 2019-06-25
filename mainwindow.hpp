@@ -3,14 +3,13 @@
 
 #include <QMainWindow>
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget* parent = nullptr);
+  explicit MainWindow(QWidget *parent = nullptr);
 
-    virtual ~MainWindow() = default;
+  virtual ~MainWindow() = default;
 };
 
 #endif // MAINWINDOW_HPP
