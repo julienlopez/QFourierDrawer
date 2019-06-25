@@ -5,14 +5,14 @@
 
 #include <QHBoxLayout>
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
     auto* w = new QWidget;
     auto* hl = new QHBoxLayout;
 
     auto* builder = new FourierBuilder;
-    builder->setFixedWidth(200);
+    builder->setFixedWidth(400);
     hl->addWidget(builder);
 
     auto* drawer = new FourierDrawer;
@@ -25,4 +25,3 @@ MainWindow::MainWindow(QWidget *parent)
     connect(builder, &FourierBuilder::updated, drawer, &FourierDrawer::setValues);
     builder->reset();
 }
-

@@ -19,12 +19,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    coefficientwidget.cpp \
         main.cpp \
         mainwindow.cpp \
     fourierdrawer.cpp \
     fourierbuilder.cpp
 
 HEADERS += \
+    coefficientwidget.hpp \
         mainwindow.hpp \
     fourierdrawer.hpp \
     fourierbuilder.hpp \

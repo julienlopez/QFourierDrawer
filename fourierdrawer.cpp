@@ -1,8 +1,8 @@
 #include "fourierdrawer.hpp"
 
-FourierDrawer::FourierDrawer(QWidget *parent) : QWidget(parent)
+FourierDrawer::FourierDrawer(QWidget* parent)
+    : QWidget(parent)
 {
-
 }
 
 void FourierDrawer::setValues(Fourier values)

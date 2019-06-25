@@ -9,7 +9,7 @@ class FourierDrawer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit FourierDrawer(QWidget *parent = nullptr);
+    explicit FourierDrawer(QWidget* parent = nullptr);
 
     virtual ~FourierDrawer() = default;
 

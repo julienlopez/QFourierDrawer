@@ -13,7 +13,7 @@ class FourierBuilder : public QWidget
 {
     Q_OBJECT
 public:
-    explicit FourierBuilder(QWidget *parent = nullptr);
+    explicit FourierBuilder(QWidget* parent = nullptr);
 
     virtual ~FourierBuilder() = default;
 
@@ -27,15 +27,18 @@ public slots:
 
 private:
     QVBoxLayout* m_layout;
+    QVBoxLayout* m_fourier_x_layout;
+    QVBoxLayout* m_fourier_y_layout;
 
-    // TODO keep both?
-    QGroupBox* m_fourier_widget;
-    QVBoxLayout* m_fourier_layout;
+    template <class T> QPushButton* createButton(const QString& label, T callback);
 
-    template<class T>
-    QPushButton* createButton(const QString& label, T callback);
+    void addXCoefficient();
+
+    void addYCoefficient();
 
     void onLoadClicked();
+
+    void onCoefficientEdited();
 };
 
 #endif // FOURIERBUILDER_HPP
