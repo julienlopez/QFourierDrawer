@@ -37,6 +37,8 @@ private:
     void addYCoefficient();
 
     void onLoadClicked();
+
+    void onCoefficientEdited();
 };
 
 #endif // FOURIERBUILDER_HPP

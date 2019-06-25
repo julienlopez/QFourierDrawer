@@ -8,12 +8,12 @@
 CoefficientWidget::CoefficientWidget(const QString& label, QWidget* parent)
     : QWidget(parent)
 {
-    auto* lay = new QHBoxLayout;
-
     m_coefficient = createLineEdit();
     m_frequency = createLineEdit();
     m_phase = createLineEdit();
 
+    auto* lay = new QHBoxLayout;
+    lay->setSpacing(1);
     lay->addWidget(m_coefficient);
     lay->addWidget(new QLabel(label + "("));
     lay->addWidget(m_frequency);
@@ -21,6 +21,11 @@ CoefficientWidget::CoefficientWidget(const QString& label, QWidget* parent)
     lay->addWidget(m_phase);
     lay->addWidget(new QLabel(")"));
     setLayout(lay);
+}
+
+Fourier::Node CoefficientWidget::value() const
+{
+    return {m_coefficient->text().toDouble(), m_frequency->text().toDouble(), m_phase->text().toDouble()};
 }
 
 QLineEdit* CoefficientWidget::createLineEdit()

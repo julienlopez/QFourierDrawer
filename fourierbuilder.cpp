@@ -60,14 +60,32 @@ template <class T> QPushButton* FourierBuilder::createButton(const QString& labe
 
 void FourierBuilder::addXCoefficient()
 {
-    m_fourier_x_layout->addWidget(new CoefficientWidget("cos"));
+    auto* w = new CoefficientWidget("cos");
+    connect(w, &CoefficientWidget::edited, this, &FourierBuilder::onCoefficientEdited);
+    m_fourier_x_layout->addWidget(w);
 }
 
 void FourierBuilder::addYCoefficient()
 {
-    m_fourier_y_layout->addWidget(new CoefficientWidget("sin"));
+    auto* w = new CoefficientWidget("sin");
+    connect(w, &CoefficientWidget::edited, this, &FourierBuilder::onCoefficientEdited);
+    m_fourier_y_layout->addWidget(w);
 }
 
 void FourierBuilder::onLoadClicked()
 {
+}
+
+void FourierBuilder::onCoefficientEdited()
+{
+    Fourier res;
+    for(int i = 2; i < m_fourier_x_layout->count(); i++)
+    {
+        res.cos_values.push_back(qobject_cast<CoefficientWidget*>(m_fourier_x_layout->itemAt(i)->widget())->value());
+    }
+    for(int i = 2; i < m_fourier_y_layout->count(); i++)
+    {
+        res.sin_values.push_back(qobject_cast<CoefficientWidget*>(m_fourier_y_layout->itemAt(i)->widget())->value());
+    }
+    emit updated(res);
 }
